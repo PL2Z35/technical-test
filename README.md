@@ -20,7 +20,7 @@ pip install -r app/requirements.txt
 python app/app.py
 ```
 
-La API estará disponible localmente en `http://localhost:8000` (o el puerto configurado en tu código).
+La API estará disponible localmente en `http://localhost:8000`.
 
 ## Variables de entorno
 
