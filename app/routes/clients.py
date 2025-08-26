@@ -35,6 +35,17 @@ def update_client(client_id: int, client: Client, session: session_dep):
     session.refresh(db_client)
     return db_client
 
+# Desactivar cliente
+@router.put("/clients/{client_id}/deactivate", response_model=Client)
+def deactivate_client(client_id: int, session: session_dep):
+    db_client = session.get(Client, client_id)
+    if not db_client:
+        raise HTTPException(status_code=404, detail="Client not found")
+    db_client.active = False
+    session.commit()
+    session.refresh(db_client)
+    return db_client
+
 @router.delete("/clients/{client_id}")
 def delete_client(client_id: int):
     with Session(engine) as session:

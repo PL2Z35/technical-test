@@ -35,6 +35,17 @@ def update_product(product_id: int, product: Product, session: session_dep):
     session.refresh(db_product)
     return db_product
 
+# Desactivar producto
+@router.put("/products/{product_id}/deactivate", response_model=Product)
+def deactivate_product(product_id: int, session: session_dep):
+    db_product = session.get(Product, product_id)
+    if not db_product:
+        raise HTTPException(status_code=404, detail="Product not found")
+    db_product.active = False
+    session.commit()
+    session.refresh(db_product)
+    return db_product
+
 @router.delete("/products/{product_id}")
 def delete_product(product_id: int):
     with Session(engine) as session:
