@@ -5,3 +5,4 @@ class Sale(SQLModel, table=True):
     product_id: int = Field(default=None, foreign_key="product.id")
     client_id: int = Field(default=None, foreign_key="client.id")
     quantity: int
+    canceled: bool = Field(default=False)
