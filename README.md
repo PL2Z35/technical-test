@@ -32,7 +32,3 @@ PASSWORD_DB=QJGp65ctPVPwWWc
 HOST_DB=chainstoretest.mysql.database.azure.com
 NAME_DB=chainstore
 ```
-
-## Notas
-- La documentación interactiva está disponible en `/docs` usando Swagger.
-- El despliegue en Azure Container Apps permite acceso público a la API y la documentación.
