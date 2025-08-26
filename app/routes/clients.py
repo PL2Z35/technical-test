@@ -35,7 +35,6 @@ def update_client(client_id: int, client: Client, session: session_dep):
     session.refresh(db_client)
     return db_client
 
-# Desactivar cliente
 @router.put("/clients/{client_id}/deactivate", response_model=Client)
 def deactivate_client(client_id: int, session: session_dep):
     db_client = session.get(Client, client_id)

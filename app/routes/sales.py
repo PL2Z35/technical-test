@@ -36,7 +36,6 @@ def update_sale(sale_id: int, sale: Sale, session: session_dep):
     session.refresh(db_sale)
     return db_sale
 
-# Anular venta
 @router.put("/sales/{sale_id}/cancel", response_model=Sale)
 def cancel_sale(sale_id: int, session: session_dep):
     db_sale = session.get(Sale, sale_id)
