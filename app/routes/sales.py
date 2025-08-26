@@ -55,3 +55,5 @@ def delete_sale(sale_id: int):
         session.delete(sale)
         session.commit()
         return {"ok": True}
+
+docker push cristian9923/chainstore:latest 

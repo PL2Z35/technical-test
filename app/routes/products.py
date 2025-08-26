@@ -35,7 +35,6 @@ def update_product(product_id: int, product: Product, session: session_dep):
     session.refresh(db_product)
     return db_product
 
-# Desactivar producto
 @router.put("/products/{product_id}/deactivate", response_model=Product)
 def deactivate_product(product_id: int, session: session_dep):
     db_product = session.get(Product, product_id)
